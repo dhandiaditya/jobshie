@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+
+    <h2>Welcome {{ request.user.username }}</h2>
+    <a  href="{% url 'company_profile_edit' %}">Edit Your Profile</a>
+    <p>Company name: {{ company_name }}</p>
+    <p>Phone number: {{ phone_number }}</p>
+    <p>Designation: {{ designation }}</p>
+   
+
+    {% endblock content %}
+ 

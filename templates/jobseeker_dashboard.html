@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+
+    <h2>Welcome {{ request.user.jobseeker.full_name }}</h2>
+
+    <a  href="{% url 'jobseeker_profile_edit' %}">Edit Your Profile</a>
+    <div class="jobseeker-cell">
+    {% if user.jobseeker.cover_photo %}
+    <img class="jobseekercoverphoto" src="{{ user.jobseeker.cover_photo.url}}" alt="{{user.jobseeker.full_name}}">
+    
+    {% endif %}
+    <p>Full Name: {{ user.jobseeker.full_name }}</p>
+    <p>Phone number: {{ phone_number }}</p>
+    <p>Location: {{ location }}</p>
+    <p>Age: {{ age }}</p>
+    <p>Gender: {{ gender }}</p>
+
+    </div>
+    {% endblock content %}

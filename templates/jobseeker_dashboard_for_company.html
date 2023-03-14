@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+    <h2>Welcome Company {{ request.user.username }}</h2>
+    {% if jobseeker.cover_photo %}
+    <div class="jobseeker-cell">
+    <img class="jobseekercoverphoto" src="{{ jobseeker.cover_photo.url}}" alt="{{jobseeker.full_name}}">
+    </div>
+    {% endif %}
+    <p>Full Name: {{ jobseeker.full_name }}</p>
+    <p>Phone number: {{ phone_number }}</p>
+    <p>Location: {{ location }}</p>
+    <p>Age: {{ age }}</p>
+    <p>Gender: {{ gender }}</p>
+    {% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+    <h2>Update Profile</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group">
+            <label>Skills:</label>
+            {% for skill_choice in skills_choices %}
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="skills" value="{{ skill_choice.0 }}" {% if skill_choice.0 in form.skills.data %}checked{% endif %}>
+                  {{ skill_choice.1 }}
+                </label>
+              </div>
+            {% endfor %}
+          </div>
+        <button type="submit">Update</button>
+    </form>
+    {% endblock content %}

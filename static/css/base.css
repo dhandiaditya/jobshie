@@ -1,0 +1,50 @@
+h1 {
+    color: rgb(64, 0, 255);
+    }
+    
+.jobshie_logo{
+    height: 300px;
+    width: auto;
+    }
+
+    .jobseeker-table {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    
+      .jobseeker-cell {
+        flex-basis: calc(25% - 10px);
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    
+      @media only screen and (max-width: 768px) {
+        .jobseeker-cell {
+          flex-basis: calc(50% - 10px);
+        }
+      }
+    
+      @media only screen and (max-width: 480px) {
+        .jobseeker-cell {
+          flex-basis: 100%;
+        }
+      }
+    
+      .jobseeker-coverphoto-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(52, 16, 181, 0.2);
+      }
+    
+      .jobseeker-coverphoto {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }

@@ -1,0 +1,62 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+    <h2>Jobseeker Profiles View</h2>
+<!--<form class="form-inline mt-2 mt-md-0" action=""
+method="get">
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search"
+aria-label="Search">
+</form> -->
+<a  href="{% url 'company_dashboard' user_id=user.id %}">Your Profile</a>
+
+<form class="form-inline mt-2 mt-md-0" action="" method="get">
+    <label for="gender">gender:</label>
+    <select name="gender" id="gender">
+      <option value="">All</option>
+      <option value="M">M</option>
+      <option value="F">F</option>
+     
+    </select>
+    
+    <br>
+    
+    <label for="age">Age:</label>
+    <select name="age" id="age">
+      <option value="">All</option>
+      <option value="25">25</option>
+      <option value="34">34</option>
+      <option value="35">35</option>
+    </select>
+    
+    <br>
+    
+    <button type="submit">Search</button>
+  </form>
+    <h3>List of Jobseekers</h3>
+
+    <div class="jobseeker-table">
+      {% for jobseeker in jobseekers %}
+        <div class="jobseeker-cell">
+          <a href="{% url 'jobseeker_dashboard_for_company' jobseeker.user.id %}">
+            <div class="jobseeker-coverphoto-wrapper">
+              {% if jobseeker.cover_photo %}
+                <img class="jobseeker-coverphoto" src="{{ jobseeker.cover_photo.url }}" alt="{{ jobseeker.full_name }}">
+              {% endif %}
+            </div>
+            <br>
+            {{ jobseeker.full_name }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    {% endblock content %}
